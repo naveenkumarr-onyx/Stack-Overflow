@@ -31,3 +31,4 @@ export const deleteAnswer = (id, answerId, noOfAnswers) =>
 export const fetchAlluser = () => API.get("/user/getAllUsers");
 export const updateProfile = (id, updateData) =>
   API.patch(`/user/update/${id}`, updateData);
+export const logHistory = (id) => API.post(`/user/loginHistory/${id}`);

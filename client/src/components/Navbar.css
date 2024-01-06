@@ -73,3 +73,8 @@
 .navbar .nav-links:hover {
   background-color: #d3e4eb;
 }
+/* @media screen and (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+  }
+} */

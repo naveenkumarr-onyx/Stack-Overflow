@@ -94,10 +94,8 @@ const Auth = () => {
             <label htmlFor="check" className=" check-ctn">
               <input type="checkbox" id="check" />
               <p style={{ color: paraCss.color, fontSize: paraCss.fontSize }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br />
-                Adipisci blanditiis et eos obcaecati, similique laboriosam ut.{" "}
-                <br />
-                Officiis dolorum doloremque aliquam eligendi consequuntur.
+                Opt-in to receive occasional product updates, user research
+                invitations, company announcements, and digests. <br /> <br />
               </p>
             </label>
           )}

@@ -84,3 +84,16 @@
 .display-tags-time .display-time {
   font-size: 13px;
 }
+@media screen and (max-width: 767px) {
+  .main-bar {
+    width: 30%;
+  }
+  .main-bar-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .display-time {
+    display: flex;
+    flex-direction: column;
+  }
+}

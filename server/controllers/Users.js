@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 import user from "../models/auth.js";
+import loginHistorySchema from "../models/loginHistory.js";
+import UserAgent from "express-useragent";
+import loginHistory from "../models/loginHistory.js";
 export const getAllUsers = async (req, res) => {
   try {
     const allUsers = await user.find();
@@ -45,5 +48,30 @@ export const updateProfile = async (req, res) => {
     res.status(405).json({
       message: error.message,
     });
+  }
+};
+
+export const logLogin = async (req, res) => {
+  // const users = await user.find();
+  const { userId, browser, os, deviceType, version, ipAddress } = UserAgent;
+  const { id: _id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("user not available");
+  }
+
+  try {
+    const loginRecord = loginHistorySchema({
+      userId: _id,
+      browser: `${browser}${version}`,
+      os,
+      deviceType: deviceType,
+      ipAddress: ipAddress,
+    });
+    await loginRecord.save();
+    const loginHistory = await loginHistory.find({ userId });
+    res.json(loginHistory);
+  } catch (error) {
+    console.error("Error handling login history:", err);
+    res.status(500).send("Internal Server Error");
   }
 };

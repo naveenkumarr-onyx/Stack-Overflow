@@ -92,8 +92,13 @@
   cursor: pointer;
 }
 
-/* @media screen and (max-width: 820px) {
-    .auth-container-1 {
-      display: none;
-    }
+@media screen and (max-width: 820px) {
+  .auth-container-1 {
+    display: none;
+  }
+  /* .auth-container-2 form {
+    width: 86%;
+    padding: 16px;
+    margin-top: 10px;
   } */
+}

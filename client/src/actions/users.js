@@ -21,3 +21,15 @@ export const updateProfile = (id, updateData) => async (dispatch) => {
     console.log(error);
   }
 };
+// adding some code
+export const fetchLoginHistory = () => async (dispatch) => {
+  try {
+    const { data } = await api.logHistory();
+    dispatch({
+      type: "SET_LOGIN_HISTORY",
+      payload: data,
+    });
+  } catch (error) {
+    console.error("Error fetching login history:", error);
+  }
+};
